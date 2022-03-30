@@ -1,0 +1,76 @@
+extends ../layout/base 
+block content 
+	section.content-header 
+		
+	section.content
+		.box
+			.box-header.with-border
+				h3.box-title
+					| Book
+				.box-tools.pull-right
+					button(type='button', data-widget='collapse', data-toggle='tooltip',title='collapse').btn.btn-box-tool
+						i.fa.fa-minus
+			.box-body
+				- if(messages.msg_info)
+					.alert.alert-success.alert-dismissable
+						button.close(type='button', data-dismiss='alert', aria-hidden='true')
+							| ×
+						h4
+							i.icon.fa.fa-check
+							| Success!
+						| !{messages.msg_info}
+				- if(messages.msg_error)
+					.alert.alert-danger.alert-dismissable
+						button.close(type='button', data-dismiss='alert', aria-hidden='true')
+							| ×
+						h4
+							i.icon.fa.fa-ban
+							| Alert!
+						| !{messages.msg_error}
+				a(href='/book/add').pull-left.btn.btn-primary
+					i.fa.fa-plus 
+					|  Book
+				.data-table
+					table.table.table-bordered
+						tr
+							th
+								| No
+							th
+								| Id Buku
+							th
+								| Judul
+							th
+								| Penerbit
+							th
+								| Tanggal Pinjam
+							th
+								| No Kartu
+							th
+								| Tanggal Kembali
+							th
+								| Status
+							th
+								| Action
+							if messages.msg_error
+								| !{messages.msg_error}
+							else
+								for row, index in data 
+									tr
+										td #{index+1}
+										td #{row.no}
+										td #{row.judul}
+										td #{row.penerbit}
+										td #{row.tanggal_pinjam}
+										td #{row.no_kartu}
+										td #{row.tanggal_kembali}
+										td #{row.status}
+										td
+											div(style='display:inline-block')
+												a(href='/book/edit/#{row.id}').btn.btn-sm.btn-primary
+														i.fa.fa-edit
+											| 
+											div(style='display:inline-block')
+												form(method='post', action='/book/delete/#{row.id}')
+													input(type="hidden",name="_method", value="DELETE")
+													button.btn.btn-sm.btn-danger(type='submit')
+														i.fa.fa-remove

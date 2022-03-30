@@ -1,0 +1,61 @@
+extends ../layout/base
+block content
+    section.content-header
+
+    section.content
+        .box
+            .box-header.with-border
+                h3.box-title
+                    | Book
+                .box-tools.pull-right
+                    button(type='button', data-widget='collapse', data-toggle='tooltip',title='collapse').btn.btn-box-tool
+                        i.fa.fa-minus
+
+            .box-body
+                form(role='form',method='post' action='/book/add')
+                    .row
+                        .col-xs-6
+                            .box-body
+                                - if (messages.msg_error)
+                                    .alert.alert-danger.alert-dismissable
+                                        button.close(type='button', data-dismiss='alert', aria-hidden='true')
+                                            | ×
+                                        h4
+                                            i.icon.fa.fa-ban
+                                            | Alert!
+                                        | !{messages.msg_error}
+                                .form-group
+                                    label
+                                        | Id Buku
+                                    input(type='text',value='#{no}',name='no',placeholder='Id Buku', autofocus).form-control
+                                .form-group
+                                    label
+                                        | Judul
+                                    input(type='text',value='#{judul}',name='judul',placeholder='Judul').form-control
+                                .form-group
+                                    label
+                                        | Penerbit
+                                    input(type='text',value='#{penerbit}',name='penerbit',placeholder='Penerbit').form-control
+                                .form-group
+                                    label
+                                        | Tanggal Pinjam
+                                    input(type='text',value='#{tanggal_pinjam}',name='tanggal_pinjam',placeholder='Tanggal Pinjam').form-control
+                                .form-group
+                                    label
+                                        | No Kartu
+                                    input(type='text',value='#{no_kartu}',name='no_kartu',placeholder='No Kartu').form-control
+                                .form-group
+                                    label
+                                        | Tanggal Kembali
+                                    input(type='text',value='#{tanggal_kembali}',name='tanggal_kembali',placeholder='Tanggal Kembali').form-control
+                                .form-group
+                                    label
+                                        | Status
+                                    input(type='text',value='#{status}',name='status',placeholder='Status').form-control
+                            .box-footer
+                                button(type='submit').btn.btn-primary
+                                    | Submit
+
+                                a(href='/book').btn.btn-primary.pull-right
+                                    | Back
+                                    

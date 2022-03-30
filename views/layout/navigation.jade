@@ -1,0 +1,28 @@
+header.main-header
+    a(href='/').logo
+        span.logo-mini
+            <b>Book</b> 
+        span.logo-lg
+            <b>Book Borrowing</b>
+    nav(role='navigation').navbar.navbar-static-top
+        a(href='#', role='button', data-toggle='offcanvas').sidebar-toggle.fa6.sidebar-mini
+            span.sr-only Toggle Navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+        div.navbar-custom-menu
+            ul.nav.navbar-nav
+                    li.dropdown.user.user-menu
+                        a(href='#',data-toggle='dropdown').dropdown-toggle
+                            img(src='/adminlte/dist/img/avatar2.png',alt='UserImage').user-image
+                            span.hidden-xs
+                                | Yara Salsabila
+                        ul.dropdown-menu
+                            li.user-header
+                                img(src='/adminlte/dist/img/avatar2.png',alt='UserImage').img-circle
+                                p
+                                    | Yara Salsabila 
+                            li.user-footer
+                                .pull-right
+                                    a(href='/logout').btn.btn-default.btn-flat
+                                        | Sign out
