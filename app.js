@@ -40,11 +40,11 @@ type koneksi : single,pool and request
 -------------------------------------------*/
 app.use(
     connection(mysql,{
-        host: 'localhost',
-        user: 'root', // your mysql user
-        password : '', // your mysql password
+        host: 'bmol4wuxdjvkshpfepz5-mysql.services.clever-cloud.com',
+        user: 'ufz9gy1irorhn7ym', // your mysql user
+        password : 'Tg9VEFlNVZTjDOQc5Dww', // your mysql password
         port : 3306, //port mysql
-        database:'bookdb' // your database name
+        database:'bmol4wuxdjvkshpfepz5' // your database name
     },'pool') //or single
 );
 app.use('/', index);
